@@ -22,7 +22,8 @@ Cookiecutter
 - `Which package manager to use?` choose `npm`
 
 Run example
-- Example created in the previous step
+- The example was already created in the previous step
+    - I don't need to write/paste my own
 - open folder in vscode
 - install recommended extensions
 - find file `package.json`
