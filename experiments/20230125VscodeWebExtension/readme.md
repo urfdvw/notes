@@ -46,8 +46,6 @@ Run example
 - [commit](https://github.com/urfdvw/vscode-ext-test/tree/12e14cb1d38333e58231ba3b4d5ceea89017393c)
 
 ### References
-
-Readings
 - [Your First Extension](https://code.visualstudio.com/api/extension-guides/web-extensions#test-your-web-extension)
 - [Test your web extension](https://code.visualstudio.com/api/extension-guides/web-extensions#test-your-web-extension)
 
