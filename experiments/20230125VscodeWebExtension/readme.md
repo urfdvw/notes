@@ -7,6 +7,9 @@
 <!--
 #20230126@date, #node, #npm
 -->
+### Goal
+- Create a barebone web-extension project
+- Debug the extension in browser
 
 ### Process
 
