@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+            class MatchedFilter {
+                constructor (target) {
+                    this.target = target;
+                    this.segment = "";
+                }
+                push (segment) {
+                    let result = [];
+                    segment = this.segment + segment;
+                    // see if the tail contains partial target
+                    for (let i = segment.length - this.target.length; i < segment.length; i++) {
+                        if (i < 0) {
+                            continue;
+                        }
+                        let tail = segment.slice(i);
+                        if (tail == this.target.slice(0, tail.length)) {
+                            this.segment = tail;
+                            segment = segment.slice(0, segment.length - tail.length);
+                            break;
+                        }
+                    }
+                    let parts = segment.split(this.target);
+                    // fisrst output
+                    let first_part = parts.shift();
+                    if (first_part.length > 0) {
+                        result.push([first_part, false]);
+                    }
+                    // the rest
+                    for (const p of parts) {
+                        result.push([this.target, true]);
+                        result.push([p, false]);
+                    }
+                    return result;
+                }
+            }
+            // test code
+            let mf = new MatchedFilter('ab');
+            console.log(mf.push('1'));
+            console.log(mf.push(''));
+            console.log(mf.push('123'));
+            console.log(mf.push('123ab4958'));
+            console.log(mf.push('123ab2123ab2123ab2'));
+            console.log(mf.push('123a'));
+            console.log(mf.push('b123a'));
+        </script>
+    </body>
+</html>
