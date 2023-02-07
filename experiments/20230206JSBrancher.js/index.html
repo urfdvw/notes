@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+            class MatchedFilter {
+                constructor (target) {
+                    this.target = target;
+                    this.segment = "";
+                }
+                push (segment) {
+                    let result = [];
+                    segment = this.segment + segment;
+                    // see if the tail contains partial target
+                    for (let i = segment.length - this.target.length; i < segment.length; i++) {
+                        if (i < 0) {
+                            continue;
+                        }
+                        let tail = segment.slice(i);
+                        if (tail == this.target.slice(0, tail.length)) {
+                            this.segment = tail;
+                            segment = segment.slice(0, segment.length - tail.length);
+                            break;
+                        } else {
+                            this.segment = "";
+                        }
+                    }
+                    let parts = segment.split(this.target);
+                    // first output
+                    let first_part = parts.shift();
+                    if (first_part.length > 0) {
+                        result.push([first_part, false]);
+                    }
+                    // the rest
+                    for (const p of parts) {
+                        result.push([this.target, true]);
+                        result.push([p, false]);
+                    }
+                    return result;
+                }
+            }
+
+            class Brancher {
+                constructor (begin_str, end_str) {
+                    this.begin_matcher = new MatchedFilter(begin_str);
+                    this.end_matcher = new MatchedFilter(end_str);
+                    this.mood = false;
+                    this.matcher = this.begin_matcher;
+                }
+                push (segment) {
+                    let result = [];
+                    let parts = this.matcher.push(segment);
+                    while (parts.length > 0) {
+                        const p = parts.shift();
+                        if (!p[1]) {
+                            result.push([p[0], this.mood])
+                        } else {
+                            this.mood = !this.mood;
+                            if (this.mood) {
+                                this.matcher = this.end_matcher;
+                            } else {
+                                this.matcher = this.begin_matcher;
+                            }
+                            var rest = [];
+                            for (const p of parts) {
+                                rest.push(p[0]);
+                            }
+                            parts = this.matcher.push(rest.join(''));
+                        }
+                    }
+                    return result
+                }
+            }
+            // test code
+            let brancher = new Brancher('{{', '}}')
+            console.log(brancher.push('1'));
+            console.log(brancher.push(''));
+            console.log(brancher.push('123{'));
+            console.log(brancher.push('{123}}ab{{4958'));
+            console.log(brancher.push('123ab2123}}ab2123ab2'));
+            console.log(brancher.push('1{{2}}{{3a'));
+            console.log(brancher.push('b12}}3a'));
+        </script>
+    </body>
+</html>

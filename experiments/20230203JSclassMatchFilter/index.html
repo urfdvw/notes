@@ -23,10 +23,12 @@
                             this.segment = tail;
                             segment = segment.slice(0, segment.length - tail.length);
                             break;
+                        } else {
+                            this.segment = "";
                         }
                     }
                     let parts = segment.split(this.target);
-                    // fisrst output
+                    // first output
                     let first_part = parts.shift();
                     if (first_part.length > 0) {
                         result.push([first_part, false]);
