@@ -67,6 +67,8 @@ Goal
 - TODO processor interface need to be redesigned,
     - currently, not able to capture structured echo data.
     - need to expose branch data and so on.
+- TODO some weird thing happened to title bar
+    - ![](2023-02-12-15-42-36.png)
 
 
 ## Reference
