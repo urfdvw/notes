@@ -6,7 +6,7 @@ A serial console for CircuitPython with Readability and Usability tools
 
 ## Scoop and Goal
 <!--
-#20230213@date,
+#20230212@date,
 -->
 
 Scoop
@@ -55,6 +55,20 @@ Goal
         - every improvement should  asssit current fucntions
     - (with that said, in the wedgits project in the future, this rule will be broken)
 
+## log
+
+- Set up a bare bone framework that only have the serial console
+    - [commit](https://github.com/urfdvw/CircuitPython-Fancy-Console/commit/3e25bd1e4697c622c26a8f8ab0110290ecf09eca)
+    - not to be distracted by other IDE issues
+    - page built
+- add dom to the fancy_console and make it ace editor
+    - in this way, add code blocks or text blocks
+    - [commit](https://github.com/urfdvw/CircuitPython-Fancy-Console/commit/66d52bc69ec98f4a6b1d803af4a6d69a9f1f6972)
+- TODO processor interface need to be redesigned,
+    - currently, not able to capture structured echo data.
+    - need to expose branch data and so on.
+
 
 ## Reference
 - [github repo](https://github.com/urfdvw/CircuitPython-Fancy-Console)
+    - [Page](https://urfdvw.github.io/CircuitPython-Fancy-Console/)
