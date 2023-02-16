@@ -55,7 +55,41 @@ Goal
         - every improvement should  asssit current fucntions
     - (with that said, in the wedgits project in the future, this rule will be broken)
 
+## Design
+- To MCU
+    - Ctrl-C and Ctrl-D short cuts are universal instead of bounded to editors
+    - Any possible Ctrl command should appear as buttons instead of just text info 
+    - serial out should only appear when needed
+    - code or input() should be distingurished.
+- From MCU
+    - Script
+        - each run should be a block
+            - including start message and done/error message
+        - high light input echo
+    - system info
+        - only appear when they make sense
+        - should disappear when next run started
+        - info should be replaced by buttons as much as possible
+    - REPL
+        - each repl session should be surrounded by a box
+            - logic is big boxes are divided by system info
+        - each loop should be surrounded by a smaller box
+        - loop block actions
+            - should not be changed (including in/out put) in place
+            - reedit: copy the code block to current session
+            - rerun: copy the code block to current session and run immediately
+        - history is not more useful than scroll up and rerun/reedit previous blocks
+            - so re design the history function to go through all history blocks
+- MISC
+    - and empty repl session could be used to block unexpected re-run triggered by file save
+        - can be used to trigger a run after multiple files are changed
+        - can be used to block some strange mac file system behavior
+
+
 ## log
+<!--
+#20230212@date,
+-->
 
 - Set up a bare bone framework that only have the serial console
     - [commit](https://github.com/urfdvw/CircuitPython-Fancy-Console/commit/3e25bd1e4697c622c26a8f8ab0110290ecf09eca)
