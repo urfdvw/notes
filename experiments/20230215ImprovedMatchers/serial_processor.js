@@ -31,13 +31,14 @@ class TargetMatcher {
     push (segment) {
         let result = [];
         segment = this.segment + segment;
+        this.segment = '';
         // see if the tail contains partial target
         for (let i = segment.length - this.target.length; i < segment.length; i++) {
             if (i < 0) {
                 continue;
             }
             let tail = segment.slice(i);
-            if (tail === this.target) {
+            if (tail === this.target) { // if complete target, output
                 break
             }
             if (tail === this.target.slice(0, tail.length)) {
@@ -109,24 +110,29 @@ class BracketMatcher {
     }
 }
 
+
 class MatcherProcessor {
     constructor (
         matcher,
         in_action = () => {},
         enter_action = () => {},
-        exit_action = () => {}
+        exit_action = () => {},
+        out_action = () => {},
     ) {
         this.matcher = matcher;
         this.in_action = in_action;
         this.enter_action = enter_action;
         this.exit_action = exit_action;
+        this.out_action = out_action;
 
         this.through = false;
         this.segment = '';
+
+        this.branch = [];
     }
     push (parts) {
         var outlet = [];
-        var branch = [];
+        this.branch = [];
         for (const part_in of parts) {
             for (const part_out of this.matcher.push(part_in)) {
                 const text = part_out[0];
@@ -137,17 +143,17 @@ class MatcherProcessor {
                 }
                 if (mood === 1) {
                     this.in_action(text);
-                    branch.push(text);
+                    this.branch.push(text);
                 }
                 if (diff === -1) {
                     this.exit_action(text);
                 }
                 if (mood === 0) {
+                    this.out_action(text);
                     outlet.push(text);
                 }
             }
         }
-        console.log('DEBUG', 'MatcherProcessor results', outlet, branch)
         return outlet;
     }
 }
@@ -225,3 +231,24 @@ console.log('DEBUG', parts)
 
 console.log('INFO', 'test ended');
 /* BracketMatcher test end */
+
+
+let echo_matcher = new TargetMatcher('print("Hello CircuitPython!")');
+let echo_processor = new MatcherProcessor(
+    echo_matcher
+);
+
+let fake_echo_matcher = new BracketMatcher('{{{', '}}}');
+let fake_echo_processor = new MatcherProcessor(
+    fake_echo_matcher
+);
+
+console.log(echo_processor.push(['print("Hello CircuitPy']));
+console.log(echo_processor.branch);
+console.log(echo_processor.push(['thon!")', '1234']));
+console.log(echo_processor.branch);
+
+console.log(fake_echo_processor.push(['{{{print("Hello CircuitPy']));
+console.log(fake_echo_processor.branch);
+console.log(fake_echo_processor.push(['thon!")}}}', '1234']));
+console.log(fake_echo_processor.branch);
