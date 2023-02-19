@@ -104,6 +104,49 @@ Goal
 - TODO some weird thing happened to title bar
     - ![](2023-02-12-15-42-36.png)
 
+<!--
+#20230218@date
+-->
+
+### [commit](https://github.com/urfdvw/CircuitPython-Fancy-Console/tree/6e9cd1c3101c2d4252a6e77a3c77cfce5347babc)
+processor interface
+- MatchProcessor have 4 default actions for
+    - enter
+    - in
+    - exit
+    - out
+- this.through can be used to let the branch merge into main flow.
+    - this is not a parameter, but a propertie
+    - this is not a good practice, mainly for debugging
+        - reason is as below
+- this.branch is used to store branch data,
+    - different from outlet, which is returned,
+    - it is just as a propertie, read it when necessary
+
+Fix about 'some weird thing happened to title bar'
+- new matchers are fixed.
+
+About crash on massive serial in
+- it crashes only on the append text part
+    - this is proved when only comment the display part
+- the current logic that mitigate the issue
+    - on the ace setting part,
+        - use max line instead of editor size
+        - scroll on change
+            - have no idea on what is the point of delay, so removed
+    - on the serial communication 
+        - [Buffer is used to capture the serial in](https://github.com/urfdvw/CircuitPython-Fancy-Console/blob/6e9cd1c3101c2d4252a6e77a3c77cfce5347babc/scripts/serial.js#L75)
+        - [Timer is used fot schedured processing](https://github.com/urfdvw/CircuitPython-Fancy-Console/blob/6e9cd1c3101c2d4252a6e77a3c77cfce5347babc/scripts/serial.js#L89)
+        - serial read in cannot be timer controlled
+            - each `reader.read()` can only read one part
+            - if timer controlled, cannot catch up with speed of sending
+        - [length captured bacause I am afraid data might change in the middle of data split](https://github.com/urfdvw/CircuitPython-Fancy-Console/blob/6e9cd1c3101c2d4252a6e77a3c77cfce5347babc/scripts/serial.js#L91)
+
+TODO: 
+- js log level
+- design how the interface is going to look like
+- state transition flow and detection
+
 
 ## Reference
 - [github repo](https://github.com/urfdvw/CircuitPython-Fancy-Console)
