@@ -143,10 +143,16 @@ About crash on massive serial in
         - [length captured bacause I am afraid data might change in the middle of data split](https://github.com/urfdvw/CircuitPython-Fancy-Console/blob/6e9cd1c3101c2d4252a6e77a3c77cfce5347babc/scripts/serial.js#L91)
 
 TODO: 
-- js log level
-- design how the interface is going to look like
+- js log level (backlogged)
+- design how the interface is going to look like (done)
 - state transition flow and detection
 
+design
+<!--
+#20230223@date
+-->
+- fancy_ui is used for ui element change
+- serial_processor is used for state and serial flow dispatcher
 
 ## Reference
 - [github repo](https://github.com/urfdvw/CircuitPython-Fancy-Console)
