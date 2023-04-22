@@ -52,7 +52,7 @@ try: add id to the component
 - the event target is what is changed
     - so the event target is the checkbox
 
-js learned
+## js learned
 
 ```js
 (x) => {return y}
@@ -72,3 +72,6 @@ update one field in js (ES7, support in react)
 {...object, field:newvalue}
 ```
 [ref](https://stackoverflow.com/a/49319842/7037749)
+
+`.closest("li")` can be used to select the `<li>` element from any child,
+so that the id can be applied to the li instead of any children
