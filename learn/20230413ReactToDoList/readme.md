@@ -75,3 +75,6 @@ update one field in js (ES7, support in react)
 
 `.closest("li")` can be used to select the `<li>` element from any child,
 so that the id can be applied to the li instead of any children
+[ref](https://developer.mozilla.org/en-US/docs/Web/API/Element/closest)
+
+didn't use shortcuts, as I have not learned it yet, and haven't accept that is a good practice.
