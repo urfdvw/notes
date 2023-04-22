@@ -32,3 +32,43 @@ export default defineConfig({
 - set github action based on https://vitejs.dev/guide/static-deploy.html#github-pages
 - in github page setting, deploy from git actions
     - ref: https://stackoverflow.com/a/73967433/7037749
+
+<!--
+@20230422@date
+-->
+
+question: what is the difference between the handler of add and toggle
+- add handler is a proper event handler
+- while toggleTodo is just a regular function tha is no taking any parameters
+- the reason for this difference is that the toggle handler want to take more parameters than just the event,
+    - in this case in the example, the id is also passed in to the handler.
+    
+Thought: however this is not very necessary in this case as the id is also in the event target.
+
+Experiment result: key is not publicly accessible
+- ref: https://stackoverflow.com/a/45166371/7037749
+
+try: add id to the component
+- the event target is what is changed
+    - so the event target is the checkbox
+
+js learned
+
+```js
+(x) => {return y}
+```
+is the same as 
+```js
+x => y
+```
+
+one line if-eval in js
+```js
+condition ? return_when_true : return when false
+```
+
+update one field in js (ES7, support in react)
+```js
+{...object, field:newvalue}
+```
+[ref](https://stackoverflow.com/a/49319842/7037749)
