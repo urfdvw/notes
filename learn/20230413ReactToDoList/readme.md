@@ -78,3 +78,6 @@ so that the id can be applied to the li instead of any children
 [ref](https://developer.mozilla.org/en-US/docs/Web/API/Element/closest)
 
 didn't use shortcuts, as I have not learned it yet, and haven't accept that is a good practice.
+
+## Make it a pwa
+https://wildermuth.com/2023/02/09/vite-plugin-for-progressive-web-apps/
