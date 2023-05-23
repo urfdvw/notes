@@ -49,3 +49,7 @@ hook -> parent component -> child component
 # Issues
 - disconnect does not work, but good enough to proceed to work on the connected variables.
 - need to have the microcontroller also use start and ending indicators instead of saperate by line endings.
+
+# TODOs
+- make each widget a module and make a centralized
+- file system hook (postpone)
