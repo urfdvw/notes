@@ -14,4 +14,4 @@ ref
 
 # issues
 The domain is blocked by some firewall, removed the original link.
-The short link is used to auto jump to the original git hub link
+The short link is used to auto jump to the original git hub link. 😭
