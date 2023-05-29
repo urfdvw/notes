@@ -38,18 +38,29 @@ instead, it returns states and function handles.
 So the function handle can be used in the following way
 hook -> parent component -> child component
 
-## for each widget
-- a module contains
-    - widget component
-    - creation component
-    - the case/if-else condition that is using the widget component
-    - the list menu that is used to creat the component
+## workflow for each new widget
+- create the widget component in a new file
+    - test it by adding it directly to the app
+- add example in JSON
+    - `const [widgets, setWidgets] = useState([` 
+    - `const json2WidgetContent = (wid) => {`
+    - remove the component added in the previous step
+    - comment the example after success
+- add creation diag in the conponent file
+    - also add the creation component i App to test
+- In CreatiWidget
+    - add to `const supportedWidgets = [`
 
+## whether to add line_end after CV_END
+- adding line_end can help divide 2 parts in the stream bracket matcher
+    - so send line end from js to py
+- adding line end can mess up with the out put if hide cv data in console
+    - so not send line end from py to js
 
 # Issues
 - disconnect does not work, but good enough to proceed to work on the connected variables.
 - need to have the microcontroller also use start and ending indicators instead of saperate by line endings.
 
 # TODOs
-- make each widget a module and make a centralized
-- file system hook (postpone)
+- use the same component but different handle functions to create widgets
+    - all with display name and variable name
