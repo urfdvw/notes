@@ -46,10 +46,23 @@ hook -> parent component -> child component
     - `const json2WidgetContent = (wid) => {`
     - remove the component added in the previous step
     - comment the example after success
-- add creation diag in the conponent file
-    - also add the creation component i App to test
+- add creation diag parameters
+    - Obj
+    - Title
+    - `const handleCreateWidgetMenu = (name) => {`
 - In CreatiWidget
     - add to `const supportedWidgets = [`
+
+## project structure
+Separate logic in different level
+- received text -> structureal text
+- structural text -> object list based on user input
+- object list -> components based on styling
+
+## Notes on how to parse the text in structural text
+- Fancy console should drop the support for  CPY7
+- Connected variable should also drop support for CPY7
+- indicator of CPY<8 is used to hide the functions that are not supported.
 
 ## whether to add line_end after CV_END
 - adding line_end can help divide 2 parts in the stream bracket matcher
@@ -59,7 +72,6 @@ hook -> parent component -> child component
 
 # Issues
 - disconnect does not work, but good enough to proceed to work on the connected variables.
-- need to have the microcontroller also use start and ending indicators instead of saperate by line endings.
 
 # TODOs
 - use the same component but different handle functions to create widgets
