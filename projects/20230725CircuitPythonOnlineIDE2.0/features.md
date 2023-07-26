@@ -1,5 +1,38 @@
 # Features Inerited from 1.0
 
+## Menu bar
+look
+- multiple levels
+- click to expand/drill down
+- leave the whole menu to hide all expaded menu
+
+function
+- open tabs of all kinds
+    - if an option is only related to one tab, it should be in the tab not the menu
+- connections
+    - serial
+    - directories
+- external links
+    - help page
+    - references
+    - contact
+
+## Editor
+
+Basic Functions
+- Ace editor + search + python highlighting
+
+ShortCut Functions
+- send to repl
+    - a line
+        - if next line more indented, send a bock
+    - selected code
+    - a cell
+
+Editor indicator
+
+
+
 # New Features from 2.0
 
 ## Fancy Console
@@ -73,13 +106,19 @@ What does it look like?
         - have more tabs visible, not only 3
         - mostly to be used across multiple screens
         - or if user have special preference of panel relative locations
+- default opening behaviour
+    - all new tabs open to A
+    - once a window is opened, remember its panel/windowed state in the settings
+        - this setting is not exposed to setting tab
 
 ## editor settings
 - editor setting are saved to browser local storage by default
 - can backup to or restore from CircuitPy
+- 1-class settings are in the settings tab
+- can open setting json in browser local storage in editor pannel
 
 ## install as pwa
-- has am option to install to chrome as PWA to be used without network
+- has an option to install to chrome as PWA to be used without network
 
 ## Report (not sure how but very possible)
 - crash reports
@@ -89,3 +128,6 @@ What does it look like?
 - count usage of functions
     - This is used for promoting
         - if some cool features are never used, make a video of it.
+
+## Theme
+- Switch between dark and light
