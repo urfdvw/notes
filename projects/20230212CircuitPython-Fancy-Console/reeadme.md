@@ -70,9 +70,13 @@ Separate logic in different level
 - adding line end can mess up with the out put if hide cv data in console
     - so not send line end from py to js
 
+## title bar should be below the tab selection
+In other words, the title bar is always visible
+
 # Issues
 - disconnect does not work, but good enough to proceed to work on the connected variables.
 
 # TODOs
 - use the same component but different handle functions to create widgets
     - all with display name and variable name
+
