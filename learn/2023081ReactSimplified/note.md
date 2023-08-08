@@ -21,3 +21,7 @@
 ## 12 - Props
 - there is a prop called `children`
     - which is a jsx variable that contains the inner JSX of the component
+
+## 17 - useState Hook
+- better use many smaller states than big giant states
+    - ??? not very sure about that
