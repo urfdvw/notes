@@ -60,6 +60,41 @@ function
     - use contex menu to show tutorial video/doc
 
 ## Tabs
+### Folder View
+Look
+- (Not here) open/close folder should be in the system level
+    - because folder view is not the only place that use the directory handle
+- top section: tool bar
+    - new folder
+    - new file
+    - rename
+    - delete
+    - move
+    - open settings
+- bottom section: folder tree
+    - show files in expandable tree
+    - highlight selected
+    - (want) right click contact menu
+    - (want) drag to move
+- settings
+    - show/hide `.*` file
+    - refresh every {int} seconds
+    - sort by (which one is the first)
+        - name
+        - type
+Feature
+- gray out binary files
+    - cannot select/operate
+- touch screen
+    - no context menu or drag on mobile version
+- refresh ever several seconds
+
+
+### setting editor
+- open json
+- generate UI for each field
+- jump to specific setting page
+
 ### Editor
 Basic Functions
 - Ace editor + search + python highlighting
