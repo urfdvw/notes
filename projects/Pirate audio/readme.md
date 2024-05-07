@@ -1,0 +1,6 @@
+- [tutorial](https://learn.pimoroni.com/article/getting-started-with-pirate-audio)
+- https://github.com/mopidy/mopidy-spotify
+    - `gst-inspect-1.0 spotify` failed
+    - https://github.com/kingosticks/gst-plugins-rs-build
+        - `sudo install -m 644 target/release/libgstspotify.so $(pkg-config --variable=pluginsdir gstreamer-1.0)/`
+        - `gst-inspect-1.0 spotify`
